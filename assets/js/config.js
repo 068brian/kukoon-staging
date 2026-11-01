@@ -4,5 +4,6 @@
 window.KUKOON_CONFIG = {
   endpoint: "",
   gtmId: "", /* optional Google Tag Manager ID, e.g. GTM-XXXXXXX. Leave empty until privacy sign-off. */
+  owners: {}, /* optional: { lbd: "Name", ilo: "Name", sil: "Name", sles: "Name", sc: "Name", hi: "Name", default: "Name" } sent as assigned_owner */
   minSeconds: 3
 };
