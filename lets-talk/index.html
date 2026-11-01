@@ -67,7 +67,7 @@
   <div class="wrap"><div class="talk talk--mx">
     <div class="f">
       <div id="error-summary" class="summary" role="alert" aria-live="assertive"></div>
-      <form id="enquiry" class="form" novalidate autocomplete="on">
+      <form id="enquiry" class="form" novalidate autocomplete="on" data-env="staging">
         <fieldset>
           <legend>Your details</legend>
           <div class="fields">
@@ -79,38 +79,41 @@
         </fieldset>
         <div class="pairs">
         <fieldset id="f-who">
-          <legend>What brings you here?<span class="req" aria-hidden="true"> *</span></legend>
-          <div class="opts" role="radiogroup"><label class="opt"><input type="radio" name="who" value="self" id="who-first"><span>I’m looking for support for myself.</span></label><label class="opt"><input type="radio" name="who" value="other"><span>I’m enquiring for someone I care about.</span></label><label class="opt"><input type="radio" name="who" value="professional"><span>I’m a professional making an enquiry or referral.</span></label><label class="opt"><input type="radio" name="who" value="else"><span>Something else.</span></label></div>
+          <legend>Who is this enquiry from?<span class="req" aria-hidden="true"> *</span></legend>
+          <div class="opts" role="radiogroup"><label class="opt"><input type="radio" name="who" value="self" id="who-first"><span>I’m looking for support for myself.</span></label><label class="opt"><input type="radio" name="who" value="other"><span>I’m enquiring for a family member or someone I care for.</span></label><label class="opt"><input type="radio" name="who" value="professional"><span>I’m a professional making an enquiry or referral.</span></label><label class="opt"><input type="radio" name="who" value="else"><span>Something else.</span></label></div>
           <p class="err" role="status"></p>
         </fieldset>
         <fieldset id="f-interest">
-          <legend>What are you interested in?<span class="req" aria-hidden="true"> *</span></legend>
-          <div class="opts two"><label class="opt"><input type="radio" name="interest" value="lbd" id="interest-first"><span>Living by Design (ILO, individual SIL, living independently)</span></label><label class="opt"><input type="radio" name="interest" value="sles"><span>School Leaver Employment Supports (SLES)</span></label><label class="opt"><input type="radio" name="interest" value="sc"><span>Support Coordination</span></label><label class="opt"><input type="radio" name="interest" value="hi"><span>High Intensity Supports &amp; Nursing</span></label><label class="opt"><input type="radio" name="interest" value="unsure"><span>I’m not sure yet</span></label><label class="opt"><input type="radio" name="interest" value="general"><span>A general question</span></label></div>
+          <legend>Which service are you interested in?<span class="req" aria-hidden="true"> *</span></legend>
+          <div class="opts"><label class="opt"><input type="radio" name="interest" value="lbd" id="interest-first"><span>Living by Design</span></label><label class="opt"><input type="radio" name="interest" value="ilo"><span>Individualised Living Options (ILO)</span></label><label class="opt"><input type="radio" name="interest" value="sil"><span>Individual Supported Independent Living (SIL)</span></label><label class="opt"><input type="radio" name="interest" value="sles"><span>School Leaver Employment Supports (SLES)</span></label><label class="opt"><input type="radio" name="interest" value="sc"><span>Support Coordination</span></label><label class="opt"><input type="radio" name="interest" value="hi"><span>High Intensity Supports &amp; Nursing</span></label><label class="opt"><input type="radio" name="interest" value="unsure"><span>I’m not sure yet</span></label><label class="opt"><input type="radio" name="interest" value="general"><span>A general question</span></label></div>
           <p class="err" role="status"></p>
         </fieldset>
         </div>
         <div class="field">
-          <label for="message" style="font-size:1.35rem">Tell us a little about what you’re looking for</label>
-          <p class="hint" id="msg-hint">A few sentences is fine. You don’t need to explain everything.</p>
+          <label for="message" style="font-size:1.35rem">Tell us a little about what you’re looking for <span class="opt-tag">(optional)</span></label>
+          <p class="hint" id="msg-hint">A few sentences is fine. Please don’t include diagnoses or medical details.</p>
           <textarea id="message" name="message" rows="5" aria-describedby="msg-hint"></textarea><p class="err"></p>
         </div>
+        <div class="field consent" id="f-consent" hidden>
+          <label class="opt"><input type="checkbox" name="authority" id="authority" value="yes"><span>I have authority to make this enquiry, or the person has agreed to me contacting Kukoon about them.<span class="req" aria-hidden="true"> *</span></span></label>
+          <p class="err"></p>
+        </div>
         <div class="hp" aria-hidden="true"><label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-        <div class="privacy"><p>Please don’t include sensitive medical records or detailed personal information in this form. We can discuss any additional information needed later.</p></div>
-        <div><button class="btn" type="submit">Send enquiry<svg class="arr" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></button></div>
+        <div class="privacy"><p>A few details are enough to begin. We’ll review your enquiry and contact you about the next step. Please don’t include medical records or sensitive personal information here.</p></div>
+        <div><button class="btn" type="submit">Send your enquiry<svg class="arr" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></button></div>
       </form>
       <div class="contactrow"><a href="tel:+61386521777"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.500 3.500h3l1.500 4-2 1.500a11 11 0 0 0 5.500 5.500l1.500-2 4 1.500v3a2 2 0 0 1-2 2A15.500 15.500 0 0 1 4.500 5.500a2 2 0 0 1 2-2Z"/></svg></span>Prefer to talk it through? Call (03) 8652 1777</a></div>
       <div id="testbox" class="testbox" role="status">
         <h2>Staging test mode: nothing was sent</h2>
-        <p>The form passed validation. The live GHL webhook isn’t connected on this staging site, so this is the exact data that would be sent to GHL, including the routing tags that choose the workflow.</p>
+        <p>The form passed validation. The live GHL webhook isn’t connected on this staging site. This is the data that would be sent.</p>
         <pre></pre>
       </div>
       <div id="thanks" class="thanks" role="status">
-        <h2>Thanks, we’ve got your enquiry.</h2>
-        <p>We’ll review your enquiry, consider which service may be relevant and contact you to discuss the next step.</p>
+        <h2>Thank you.</h2>
+        <p>Your enquiry has been received. Kukoon will review it and contact you about the next step.</p>
       </div>
     </div>
-    <aside class="s" aria-labelledby="next">
-      <div class="ph m-arch"><img src="../assets/img/hoodie-1290.webp" srcset="../assets/img/hoodie-480.webp 480w, ../assets/img/hoodie-800.webp 800w, ../assets/img/hoodie-1290.webp 1290w" sizes="(min-width:62rem) 28vw, 80vw" width="1290" height="860" alt="A woman smiles as she cuddles a small dog on a couch in warm afternoon light." loading="lazy" decoding="async" style="object-position:40% 50%"></div>
+    <aside class="s s--solo" aria-labelledby="next">
       <div class="after">
         <h2 id="next">What happens next?</h2>
         <p>We’ll review your enquiry, consider which service may be relevant and contact you to discuss the next step.</p>

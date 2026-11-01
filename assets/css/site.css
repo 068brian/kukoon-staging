@@ -765,3 +765,39 @@ body{overflow-x:clip}
 .brand img{height:3.4rem;width:auto;aspect-ratio:817/256}
 .site-footer .brand img{height:3.8rem}
 @media (max-width:40rem){.brand img{height:2.7rem}}
+
+/* ===== Revision 2: commercial narrative ===== */
+.why{background:var(--forest);color:var(--ivory);padding-block:clamp(3rem,7vw,6rem);margin-top:clamp(1.5rem,4vw,3rem)}
+.why__grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(2rem,5vw,5rem);align-items:center}
+.why h2{color:var(--ivory);font-size:clamp(1.9rem,4vw,3rem);max-width:20ch}
+.why .lead{max-width:38rem}
+.why__points{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.why__points li{border-left:3px solid var(--rose);padding:.2rem 0 .2rem 1.2rem;font:500 clamp(1.1rem,1.8vw,1.35rem)/1.4 var(--display)}
+.svcmix{display:grid;grid-template-columns:repeat(12,1fr);gap:1.4rem}
+.sm{background:var(--paper);border-radius:1.6rem;padding:clamp(1.4rem,2.5vw,2rem);grid-column:span 6;display:flex}
+.sm .body{display:flex;flex-direction:column;gap:.4rem}
+.sm h3{font-size:1.25rem;margin:0}
+.sm p{margin:0 0 .6rem}
+.sm .tlink{margin-top:auto}
+.sm--lead{grid-column:1/-1;background:var(--forest);color:var(--ivory);border-radius:2.2rem 2.2rem 2.2rem .6rem;padding:clamp(1.8rem,4vw,3rem)}
+.sm--lead h3{color:var(--ivory);font-size:clamp(1.6rem,3vw,2.3rem)}
+.sm--lead p{font-size:1.1rem;max-width:44rem}
+.sm--second{grid-column:span 6;background:var(--sage-soft)}
+.sm:nth-child(3),.sm:nth-child(4){grid-column:span 3}
+@media (max-width:62rem){.sm:nth-child(3),.sm:nth-child(4){grid-column:span 6}}
+@media (max-width:44rem){.why__grid{grid-template-columns:1fr}.svcmix{grid-template-columns:1fr}.sm,.sm--second,.sm:nth-child(3),.sm:nth-child(4){grid-column:1/-1}}
+.fdr--solo{grid-template-columns:1fr}
+.related{margin-top:2rem}
+.related h3{font-size:1.1rem;margin-bottom:.6rem}
+.related ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.6rem}
+.related a{display:inline-block;padding:.45rem 1rem;border:1.5px solid var(--forest);border-radius:999px;text-decoration:none;font-weight:500;font-size:.95rem}
+.related a:hover{background:var(--sage-soft)}
+@media (max-width:44rem){.mx-photo[style*="21/5.5"]{aspect-ratio:16/7!important}}
+
+/* Revision 2: single enquiry form */
+.talk--mx .s.s--solo{grid-template-columns:1fr}
+.consent[hidden]{display:none}
+.consent .opt{align-items:flex-start}
+.form .opts.err-live{margin:0}
+.thanks:focus{outline:3px solid var(--forest);outline-offset:3px}
+.fail{display:none}

@@ -33,7 +33,10 @@
     var a = e.target.closest && e.target.closest("a"); if (!a) return;
     var h = a.getAttribute("href") || "";
     if (h.indexOf("tel:") === 0) track("kukoon_phone_click", {});
-    else if (/lets-talk/.test(h) && /interest=lbd/.test(h)) track("kukoon_cta_click", { cta_target: /who=professional/.test(h) ? "referral_form" : "enquiry_form", cta_text: (a.textContent || "").trim().slice(0, 60) });
+    else if (/lets-talk/.test(h)) {
+      var ref = /type=professional/.test(h);
+      track(ref ? "referral_cta_click" : "primary_cta_click", { cta_target: ref ? "referral_form" : "enquiry_form", service: (h.match(/service=([\w-]+)/) || [])[1] || "", cta_text: (a.textContent || "").trim().slice(0, 60) });
+    }
   });
-  if (/lets-talk/.test(location.pathname) && /interest=lbd/.test(location.search)) track("kukoon_form_view", { pathway: "living_by_design" });
+  if (/lets-talk/.test(location.pathname)) track("kukoon_form_view", { service: (location.search.match(/service=([\w-]+)/) || [])[1] || "" });
 })();
