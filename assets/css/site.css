@@ -760,3 +760,8 @@ body{overflow-x:clip}
 /* Living by Design sub-menu items */
 .submenu a.sub2{padding-left:1.9rem;font-weight:400;font-size:.95rem}
 @media (min-width:62rem){.cards3--text.cards3--three{grid-template-columns:repeat(3,1fr)}}
+
+/* Original Kukoon logo (butterfly + wordmark in one file) */
+.brand img{height:3.4rem;width:auto;aspect-ratio:817/256}
+.site-footer .brand img{height:3.8rem}
+@media (max-width:40rem){.brand img{height:2.7rem}}

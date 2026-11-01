@@ -112,7 +112,7 @@
     var who = checked("who"), interest = checked("interest");
     var tags = ["Website enquiry", "Interest: " + routes.interest[interest], "Enquirer: " + routes.who[who]];
     if (who === "professional") tags.push("Referral / professional");
-    return {
+    var out = {
       source: "kukoon-website-lets-talk",
       page: location.pathname,
       submitted_at: new Date().toISOString(),
@@ -125,6 +125,20 @@
       suburb_or_postcode: val("suburb"),
       message: val("message")
     };
+    var c = (window.KukoonTrack && window.KukoonTrack.campaign()) || {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "landing_page"].forEach(function (k) { if (c[k]) out[k] = c[k]; });
+    return out;
+  }
+
+  /* Conversion event: no personal or sensitive data, only the pathway and enquirer type. */
+  function conv(data) {
+    if (!window.KukoonTrack) return null;
+    var tagged = data.routing_tags.split(",");
+    return window.KukoonTrack.track("kukoon_enquiry_submit", {
+      pathway: checked("interest"), enquirer_type: checked("who"),
+      utm_campaign: data.utm_campaign || "", utm_source: data.utm_source || "", utm_medium: data.utm_medium || "",
+      has_phone: data.phone ? "yes" : "no", tags: tagged.length
+    });
   }
 
   form.addEventListener("submit", function (e) {
@@ -142,12 +156,15 @@
     }
     var data = payload();
     if (!cfg.endpoint) {
-      testbox.querySelector("pre").textContent = JSON.stringify(data, null, 2);
+      var ev = conv(data);
+      var shown = JSON.parse(JSON.stringify(data)); shown._test_conversion_event = ev;
+      testbox.querySelector("pre").textContent = JSON.stringify(shown, null, 2);
       testbox.classList.add("show");
       testbox.scrollIntoView({ block: "center", behavior: "smooth" });
       return;
     }
     sendBtn.disabled = true; sendBtn.setAttribute("aria-busy", "true");
+    conv(data);
     var body = new URLSearchParams(data).toString();
     fetch(cfg.endpoint, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body })
       .then(done)
