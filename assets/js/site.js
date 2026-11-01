@@ -129,11 +129,11 @@
     var t = d.getElementById(a.getAttribute("href").slice(1)); if (t) { t.focus(); t.scrollIntoView({ block: "center" }); }
   });
   form.addEventListener("input", function (e) {
-    var t = e.target; var c = t.closest(".field") || t.closest("fieldset");
+    var t = e.target; var c = t.closest(".field, .consent, fieldset");
     if (c && c.classList.contains("invalid")) { c.classList.remove("invalid"); t.removeAttribute("aria-invalid"); }
   });
   form.addEventListener("change", function (e) {
-    var t = e.target; var c = t.closest(".field") || t.closest("fieldset");
+    var t = e.target; var c = t.closest(".field, .consent, fieldset");
     if (c && c.classList.contains("invalid")) { c.classList.remove("invalid"); t.removeAttribute("aria-invalid"); }
   });
 
