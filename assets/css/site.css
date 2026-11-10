@@ -909,3 +909,8 @@ body{overflow-x:clip}
   .note{padding:.9rem 1.3rem}
   .mx-sec .note--rose{padding:clamp(1.1rem,2.2vw,1.6rem) clamp(1.6rem,3vw,2.4rem)}
 }
+/* Home: "How we can support you" starts on the same line as the text inside the cards below */
+@media (min-width:52.01rem){.hws{padding-left:clamp(1.6rem,3vw,2.4rem)}}
+/* About: founder block fully centred */
+.fdr--solo .card{text-align:center}
+.fdr--solo .card>*{text-align:center}
