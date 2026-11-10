@@ -914,3 +914,11 @@ body{overflow-x:clip}
 /* About: founder block fully centred */
 .fdr--solo .card{text-align:center}
 .fdr--solo .card>*{text-align:center}
+/* Tablet and mobile: heading starts level with the card text; last service card fills its row */
+@media (max-width:52rem){.hws{padding-left:clamp(1.8rem,4vw,3rem)}}
+@media (min-width:44.01rem) and (max-width:52rem){.svcmix .sm:nth-child(4){grid-column:1/-1}}
+/* Services: illustration tile matches the photo tiles so all rows share one height */
+@media (min-width:52.01rem){
+  .art:has(img[src*="leaves"]){aspect-ratio:534/296;min-height:0;display:grid;place-items:center;overflow:hidden}
+  .art:has(img[src*="leaves"]) img{height:15.5rem!important;width:auto!important;max-width:none}
+}
