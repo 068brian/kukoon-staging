@@ -831,3 +831,38 @@ body{overflow-x:clip}
 .nextgrid .related{margin:0}
 @media (max-width:52rem){.rowx,.nextgrid{grid-template-columns:1fr;gap:.6rem}.rowx h2{max-width:none}}
 @media (min-width:52rem){.mx-photo{aspect-ratio:21/8}}
+
+/* ===== Revision 3 (10 Nov 2026): palette balance, desktop alignment, photo resolution ===== */
+/* Palette: brief hex values are unchanged (forest #20372F, ivory #F5F0E8, dusty rose #D4A7A0, sage #C6CFBD, ochre #D5A15B).
+   The large pink fills used a derived tint (#EBD6D1) that read as too pink. It is now a quiet warm blush, so dusty rose stays an accent. */
+:root{--rose-soft:#EFE3DB;--sec:clamp(3rem,6vw,5rem)}
+.sc4 .c svg{stroke:var(--rose-deep)}
+
+/* Home: "How we can support you" matches the section title size and lines up with the card text below */
+@media (min-width:52rem){
+  .hws{font-size:clamp(1.9rem,3.8vw,3.1rem);line-height:1.08;letter-spacing:-.022em;margin:clamp(2.2rem,4vw,3.2rem) 0 1.3rem;padding-left:clamp(1.8rem,4vw,3rem)}
+}
+/* Home: local team card sits level with the middle of the Melbourne text */
+.cols2--mid{align-items:center}
+
+/* About: founder block, centred column and a clear size order (name, then label, then first line) */
+.fdr--solo .card>*{width:100%;max-width:48rem;margin-inline:auto!important}
+.fdr--solo .card .label{font-size:clamp(1.3rem,2.4vw,1.75rem);font-weight:600;color:var(--forest);margin-bottom:.35rem}
+.fdr--solo .card h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:.35em}
+.fdr--solo .card .lead-sub{font-size:clamp(1.1rem,1.8vw,1.3rem);font-weight:500}
+.mx-sec+.close{margin-top:clamp(1rem,2.5vw,2rem)}
+
+/* About: tagline tile centred against the text column */
+@media (min-width:52.01rem){.rowfeat{align-items:center}.rowfeat .tile{align-self:center;margin-top:0}}
+
+/* High Intensity: one shared text inset for the dark panel, the line under it and the assessment card */
+.standard+.lead{padding-left:clamp(1.8rem,4vw,3rem);margin-top:1.1rem}
+.mx-sec .note--rose{padding:clamp(1.4rem,3vw,2.2rem) clamp(1.8rem,4vw,3rem)}
+.mx-sec[aria-label="Recruitment standard"]{padding-bottom:0}
+.mx-sec[aria-labelledby="careful"]{padding-top:clamp(1rem,2vw,1.5rem)}
+
+/* Photos: do not stretch low-resolution sources past what they can carry */
+@media (min-width:52.01rem){
+  .home-hero__image{inset:0 0 0 auto;width:min(78%,1100px)}
+}
+.mx-photo:has(img[src*="garden"]){max-width:960px}
