@@ -866,3 +866,58 @@ body{overflow-x:clip}
   .home-hero__image{inset:0 0 0 auto;width:min(78%,1100px)}
 }
 .mx-photo:has(img[src*="garden"]){max-width:960px}
+
+/* ===== Revision 3b: tighter vertical rhythm on desktop ===== */
+:root{--sec:clamp(2.5rem,4.2vw,3.5rem)}
+.sec{padding-block:var(--sec)}
+.why{padding-block:clamp(2.5rem,4.5vw,4rem);margin-top:clamp(1.5rem,3vw,2.5rem)}
+.mx-sec{padding-block:clamp(1.2rem,2.4vw,2rem)}
+.mx-hero{padding-block:clamp(.5rem,1.2vw,.8rem) clamp(1rem,2vw,1.6rem)}
+.hero2{min-height:clamp(26rem,36vw,31rem)}
+.hero2 .photo{min-height:26rem}
+.home-hero{min-height:clamp(26rem,34vw,31rem)}
+.close.sec{padding-block:clamp(2.5rem,4.5vw,3.75rem)}
+.mx-sec+.close{margin-top:clamp(.75rem,1.8vw,1.5rem)}
+.hws{margin:clamp(1.4rem,2.6vw,2rem) 0 .9rem}
+.mx-sec[aria-label="Recruitment standard"]{padding-bottom:0}
+.mx-sec[aria-labelledby="careful"]{padding-top:clamp(.8rem,1.5vw,1.2rem)}
+.mx-sec--rows{padding-block:clamp(1rem,2vw,1.6rem)}
+.strip{padding-block:0}
+@media (min-width:52.01rem){
+  .sm--lead,.standard{padding:clamp(1.4rem,2.8vw,2.2rem) clamp(1.8rem,3.4vw,2.6rem)}
+  .note{padding:1.1rem 1.5rem}
+}
+.mx-hero .mx-in{padding-block:clamp(1.4rem,2.6vw,2.2rem)}
+.mx-hero .mx-in p{margin-bottom:.85rem}
+.mx-hero .mx-in h1{margin-bottom:.3em}
+.mx-hero .btnrow{margin-top:1.3rem}
+
+/* ===== Revision 3c: compact rhythm, final pass ===== */
+:root{--sec:clamp(1.75rem,3vw,2.5rem)}
+.sec{padding-block:var(--sec)}
+.sec--tight{padding-block:calc(var(--sec)*.7)}
+.why{padding-block:clamp(1.8rem,3vw,2.6rem);margin-top:clamp(.8rem,1.8vw,1.4rem)}
+.mx-sec{padding-block:clamp(.8rem,1.6vw,1.3rem)}
+.mx-sec--rows{padding-block:clamp(.7rem,1.4vw,1.1rem)}
+.mx-hero{padding-block:.4rem clamp(.6rem,1.2vw,1rem)}
+.mx-hero .mx-in{padding-block:clamp(1.2rem,2.2vw,1.8rem)}
+.hero2{min-height:clamp(22rem,30vw,27rem)}
+.hero2 .photo{min-height:22rem}
+.home-hero{min-height:clamp(23rem,30vw,27rem)}
+.close.sec{padding-block:clamp(1.8rem,3vw,2.6rem)}
+.close{margin-top:clamp(.8rem,1.8vw,1.4rem)}
+.mx-sec+.close{margin-top:clamp(.5rem,1vw,.9rem)}
+.cat,.nf{padding-block:var(--sec)}
+.strip{margin-block:0}
+.sec h2,.mx-sec h2{margin-bottom:.35em}
+.sec .lead,.mx-sec .lead{margin-bottom:.8rem}
+.hws{margin:clamp(1rem,2vw,1.5rem) 0 .7rem}
+.sc4{gap:.9rem}
+.mx-sec[aria-labelledby="careful"]{padding-top:.6rem}
+@media (min-width:52.01rem){
+  .sm--lead,.standard{padding:clamp(1.2rem,2.2vw,1.8rem) clamp(1.6rem,3vw,2.4rem)}
+  .note{padding:.9rem 1.3rem}
+  .mx-sec .note--rose{padding:clamp(1.1rem,2.2vw,1.6rem) clamp(1.6rem,3vw,2.4rem)}
+}
+.home-hero{min-height:clamp(28rem,34vw,31rem)}
+@media (min-width:52.01rem){.home-hero__panel{padding-block:1.5rem}}
